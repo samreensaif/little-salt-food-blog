@@ -1,37 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Little Salt - Food Blog Website  
 
-## Getting Started
+**Live Demo:** [Little Salt on Vercel](your-vercel-link-here)  
 
-First, run the development server:
+## Overview  
+Little Salt is a modern, fully responsive food blog website built with **Next.js 15**. The website features dynamic and static routes, an integrated CMS using **Sanity**, and a functional contact page powered by **Email.js**. The design emphasizes accessibility, responsiveness, and user engagement.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features  
+- **Dynamic and Static Routing:** Supports multiple routes and dynamic content.  
+- **Sanity Integration:** Enables seamless content management and dynamic updates.  
+- **Fully Functional Contact Page:** Users can send messages via Email.js.  
+- **Responsive Design:** Optimized for all screen sizes and devices.  
+- **Comments Section:** Integrated and functional for user engagement.  
+- **Modern Libraries:** Utilizes Tailwind CSS, styled-components, and more for styling and animations.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack  
+- **Framework:** [Next.js 15](https://nextjs.org/)  
+- **CMS:** [Sanity](https://www.sanity.io/)  
+- **Styling:** Tailwind CSS, Tailwind Merge, styled-components  
+- **Utilities:** Email.js, Radix UI, React Icons, clsx  
+- **Version Control:** Git and GitHub  
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Installation  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Prerequisites  
+Ensure you have the following installed:  
+- Node.js (v18 or above)  
+- npm or Yarn  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Steps  
+1. Clone the repository:  
+   ```bash  
+   git clone https://github.com/your-username/little-salt.git  
+   ```  
+2. Navigate to the project directory:  
+   ```bash  
+   cd little-salt  
+   ```  
+3. Install dependencies:  
+   ```bash  
+   npm install  
+   ```  
+4. Start the development server:  
+   ```bash  
+   npm run dev  
+   ```  
+5. Visit the application at [http://localhost:3000](http://localhost:3000).  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# little-salt-food-blog" 
+| Command          | Description                  |  
+|-------------------|------------------------------|  
+| `npm run dev`    | Starts the development server|  
+| `npm run build`  | Builds the application       |  
+| `npm run start`  | Starts the production server |  
+| `npm run lint`   | Lints the code               |  
+
+---
+
+## Dependencies  
+
+### Key Dependencies  
+- **Next.js**: React framework for server-side rendering and static site generation.  
+- **Sanity**: CMS for managing blog content.  
+- **Tailwind CSS**: Utility-first CSS framework.  
+- **Email.js**: For sending messages from the contact page.  
+
+### Development Dependencies  
+- **TypeScript**: Type-safe JavaScript development.  
+- **ESLint**: Linting and code style enforcement.  
+
+---
+
+## Deployment  
+The website is deployed on **Vercel** for optimal performance and scalability.  
+
+---
+
+## Feedback  
+If you encounter any issues or have suggestions, please open an issue or contact me directly through the website's contact form.  
+
+**Happy Blogging!** 🌟  
