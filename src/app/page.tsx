@@ -7,6 +7,9 @@ import LatestArticles from "@/components/latestArticles/LatestArticles";
 
 
 export default function Home() {
+
+  
+
   return (
     <>
     <Hero/>
