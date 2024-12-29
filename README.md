@@ -1,6 +1,6 @@
 # Little Salt - Food Blog Website  
 
-**Live Demo:** [Little Salt on Vercel](https://little-salt-food-blog.vercel.app/)  
+**Live Demo:** [Little Salt on Vercel](your-vercel-link-here)  
 
 ## Overview  
 Little Salt is a modern, fully responsive food blog website built with **Next.js 15**. The website features dynamic and static routes, an integrated CMS using **Sanity**, and a functional contact page powered by **Email.js**. The design emphasizes accessibility, responsiveness, and user engagement.  
