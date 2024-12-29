@@ -18,20 +18,20 @@ function Header() {
 
           {/* Navigation */}
           <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center gap-3 xsm:gap-4 text-lg xsm:text-xl justify-center">
-            <Link href="/" className="hover:text-gray-900">
+            <Link href="/" className="text-gray-900 hover:scale-110 hover:text-purple-700 hover:underline transition-all duration-300">
               Home
             </Link>
-            <Link href="/blog" className="hover:text-gray-900">
+            <Link href="/blog" className="text-gray-900 hover:scale-110 hover:text-purple-700 hover:underline transition-all duration-300">
               Blog
             </Link>
-            <Link href="/about" className="hover:text-gray-900">
+            <Link href="/about" className="text-gray-900 hover:scale-110 hover:text-purple-700 hover:underline transition-all duration-300">
               About
             </Link>
           </nav>
 
           {/* Contact Button */}
           <Link href="/contact">
-            <button className="inline-flex items-center bg-[#7C4EE4] text-white border-0 py-2 px-4 xsm:py-2 xsm:px-5 focus:outline-none hover:bg-purple-400 hover:text-black rounded text-sm xsm:text-base mt-4 md:mt-0">
+            <button className="inline-flex items-center bg-[#7C4EE4] text-white border-0 py-2 px-4 xsm:py-2 xsm:px-5 focus:outline-none hover:bg-purple-400 hover:underline hover:scale-110 transition-all duration-300 rounded text-sm xsm:text-base mt-4 md:mt-0">
               Contact Us
               <svg
                 fill="none"

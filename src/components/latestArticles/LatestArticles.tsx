@@ -90,7 +90,7 @@ async function LatestArticles() {
             </div>
 
             {/* View More Button */}
-            <div className="text-center px-4">
+            <div className="text-center px-4 hover:scale-105 transition-all duration-300 hover:underline">
                 <Link href="/blog">
                     <p className="inline-block text-center rounded-full text-white py-3 px-6 bg-[#7C4EE4] hover:underline">
                         View More <MoveRight className="inline-flex ml-2" />

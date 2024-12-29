@@ -7,8 +7,13 @@ import { featuredRecipes } from './landingPage-sections/featuredRecipes'
 import { hero } from './landingPage-sections/hero'
 import { landingPage } from './landingPage-sections/landingPage'
 import { latestArticles } from './landingPage-sections/latestArticles'
+import { aboutPage } from './aboutPage/aboutPage'
+import { aboutPageSection } from './aboutPage/aboutPageSection'
+import { aboutCardSection } from './aboutPage/aboutCardSection'
+
+
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [landingPage,hero,featuredRecipes,categories,latestArticles,blogPageSchema,blogPosts,contactPage],
+  types: [landingPage,hero,featuredRecipes,categories,latestArticles,blogPageSchema,blogPosts,contactPage,aboutPage,aboutPageSection,aboutCardSection],
 }

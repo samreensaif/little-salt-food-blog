@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { client } from '@/sanity/lib/client';
 import React from 'react';
 
+
 async function Categories() {
   interface CategoriesCard {
     categoryCardTitle: string;
@@ -47,43 +48,44 @@ async function Categories() {
 
         {/* Related Posts */}
         <div className="border border-darkgray w-full px-4 sm:px-6 py-4">
-          <h1 className="text-xl sm:text-2xl lg:text-3xl underline font-medium mb-6 text-[#7C4EE4]">
-            {res2[0]?.categoryTitle}
-          </h1>
+        
+            <h1 className="text-xl sm:text-2xl lg:text-3xl underline font-medium mb-6 text-[#7C4EE4]">
+              {res2[0]?.categoryTitle}
+            </h1>
+          
 
           {res.map((item: CategoriesCard, index: number) => (
-            <div
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-6 items-start"
-              key={index}
-            >
-              <Image
-                src={item.categoryCardImage}
-                width={150}
-                height={150}
-                className="w-full sm:w-[180px] h-auto object-cover"
-                alt={item.categoryCardTitle}
-              />
-              <div className="flex flex-col gap-3">
-                <p className="font-semibold text-base sm:text-lg md:text-xl">
-                  {item.categoryCardTitle}
-                </p>
+             
+             <div key={index} className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-6 items-start">
+               <Image
+                 src={item.categoryCardImage}
+                 width={150}
+                 height={150}
+                 className="w-full sm:w-[180px] h-auto object-cover hover:scale-110 transition-all duration-1000 rounded-md ease-in-out"
+                 alt={item.categoryCardTitle}
+               />
+               <div className="flex flex-col gap-3">
+                 <p className="font-semibold text-base sm:text-lg md:text-xl">
+                   {item.categoryCardTitle}
+                 </p>
 
-                <p className="flex items-center space-x-2 text-sm sm:text-base">
-                  <CalendarDays className="inline-flex" />
-                  <span>{item.categoryCardDate}</span>
-                </p>
+                 <p className="flex items-center space-x-2 text-sm sm:text-base">
+                   <CalendarDays className="inline-flex" />
+                   <span>{item.categoryCardDate}</span>
+                 </p>
 
-                <div className="inline-block bg-[#7C4EE4] px-2 py-1 mt-2 hover:underline">
-                  <Link
-                    href={`/categories/id?categoryCardTitle=${item.categoryCardTitle}&categoryCardDate=${item.categoryCardDate}&categoryCardImage=${item.categoryCardImage}&categoryCardParagrapgy=${item.categoryCardParagrapgy}&categoryCardMinutes=${item.categoryCardMinutes}`}
-                  >
-                    <p className="text-white flex items-center text-sm sm:text-base">
-                      {item.categoryCardButton} <MoveRight className="ml-2" />
-                    </p>
-                  </Link>
-                </div>
-              </div>
-            </div>
+                 <div className="inline-block bg-[#7C4EE4] px-2 py-1 mt-2 hover:underline">
+                   <Link
+                     href={`/categories/id?categoryCardTitle=${item.categoryCardTitle}&categoryCardDate=${item.categoryCardDate}&categoryCardImage=${item.categoryCardImage}&categoryCardParagrapgy=${item.categoryCardParagrapgy}&categoryCardMinutes=${item.categoryCardMinutes}`}
+                   >
+                     <p className="text-white flex items-center text-sm sm:text-base hover:underline ">
+                       {item.categoryCardButton} <MoveRight className="ml-2" />
+                     </p>
+                   </Link>
+                 </div>
+               </div>
+             </div>
+           
           ))}
         </div>
       </aside>

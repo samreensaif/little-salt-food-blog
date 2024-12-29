@@ -1,8 +1,12 @@
 
-import React from "react";
 import { Button } from "../ui/button";
 import { client } from "@/sanity/lib/client";
 import Link from "next/link";
+
+import React from "react";
+
+
+
 
 
 async function Hero() {
@@ -13,10 +17,15 @@ async function Hero() {
     }
   `);
 
+
+
+
   return (
     <section className="relative">
       {/* Hero Background */}
+
       <div
+      
         style={{ backgroundImage: `url(${res[0].heroImage})` }}
         className="bg-cover bg-center h-[80vh] sm:h-[90vh] flex items-center justify-center"
        
@@ -24,12 +33,17 @@ async function Hero() {
       ></div>
 
       {/* Hero Content */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center px-4 xsm:px-6 sm:px-8 md:px-12">
+      <div  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center px-4 xsm:px-6 sm:px-8 md:px-12">
 
 
-        <h1 className="text-2xl xsm:text-3xl sm:text-3xl md:text-5xl lg:text-6xl leading-snug font-bold text-white">
+        <h1 
+        
+        className="text-2xl xsm:text-3xl sm:text-3xl md:text-5xl lg:text-6xl leading-snug font-bold text-white">
           {res[0].mainHeading}
         </h1>
+
+
+        
 
 
         
@@ -38,7 +52,7 @@ async function Hero() {
         </p>
 
         <Link href="/blog">
-        <Button className="mt-6 sm:mt-8 lg:mt-10 text-sm xsm:text-base sm:text-lg md:text-xl lg:text-[18px] bg-[#7C4EE4] hover:bg-purple-400 hover:text-black px-4 sm:px-6 lg:px-8 py-2">
+        <Button className="mt-6 text-white sm:mt-8 lg:mt-10 text-sm xsm:text-base sm:text-lg md:text-xl lg:text-[18px] bg-[#7C4EE4] hover:bg-purple-400 hover:underline hover:scale-110 transition-all duration-300 px-4 sm:px-6 lg:px-8 py-2">
           {res[0].btnText}
         </Button>
 
