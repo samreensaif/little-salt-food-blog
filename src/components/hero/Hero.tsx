@@ -32,7 +32,7 @@ async function Hero() {
   const { heroImage, para1, mainHeading } = res[cardRandomNumber];
 
 
-console.log(res)
+
 
 
 

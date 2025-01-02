@@ -62,7 +62,7 @@ async function Categories() {
                  className="w-full sm:w-[180px] h-auto object-cover hover:scale-110 transition-all duration-1000 rounded-md ease-in-out"
                  alt={item.title}
                />
-               <div className="flex flex-col gap-3">
+               <div className="flex flex-col gap-3 sm:px-2">
                  <p className="font-semibold text-base sm:text-lg md:text-xl">
                    {item.title}
                  </p>

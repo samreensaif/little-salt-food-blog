@@ -58,7 +58,7 @@ async function LatestDynamic({ searchParams }: { searchParams: Promise<{ id: num
       
            <PostCreator blog_id={id} />
 
-           {/* <Comments/> */}
+         
             </div>
     </div>
   );
