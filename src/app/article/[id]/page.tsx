@@ -9,6 +9,7 @@ import PostCreator from '@/components/comments/comments';
 
 
 
+
 async function LatestDynamic({ searchParams }: { searchParams: Promise<{ id: number, date: string, title: string, description: string, minutes: string, articleImage: string }> }) {
   
   

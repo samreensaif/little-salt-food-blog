@@ -4,7 +4,8 @@ import Link from "next/link";
 import React from "react";
 
 import Categories from "../categories/Categories";
-import { client } from "@/sanity/lib/client";
+import { client } from "src/sanity/lib/client";
+
 
 interface IResult {
   date: string[];

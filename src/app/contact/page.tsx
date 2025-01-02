@@ -8,8 +8,9 @@ import { LuHandshake } from "react-icons/lu";
 import { MapPin, Phone } from "lucide-react";
 
 import { useEffect, useState } from "react";
-import { sendEmail } from "@/utils/emailServices";
-import { client } from "@/sanity/lib/client";
+import { client } from "src/sanity/lib/client";
+import { sendEmail } from "src/utils/emailServices";
+
 
 export default function ContactPage() {
 

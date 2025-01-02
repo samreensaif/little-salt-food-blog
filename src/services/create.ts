@@ -1,6 +1,9 @@
 "use server"
+
+import { client } from "src/sanity/lib/client";
+
 // src\services\create.ts
-import { client } from "@/sanity/lib/client";
+
 
 
 // --------------------------------------------------------------fetch

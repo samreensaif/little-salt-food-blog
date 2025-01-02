@@ -4,8 +4,9 @@
 
 
 import AboutSection from '@/components/aboutSection/AboutSection';
-import { client } from '@/sanity/lib/client';
+
 import React from 'react';
+import { client } from 'src/sanity/lib/client';
 
 async function AboutPage() {
 

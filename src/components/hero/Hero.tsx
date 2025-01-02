@@ -1,10 +1,10 @@
 
 import { Button } from "../ui/button";
-import { client } from "@/sanity/lib/client";
 
 import Link from "next/link";
 
 import React from "react";
+import { client } from "src/sanity/lib/client";
 
 
 async function Hero() {

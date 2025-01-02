@@ -12,7 +12,8 @@ import { X } from 'lucide-react'
 
 import { Toaster, toast } from 'sonner';
 import ReviewCard from '../ReviewCard/ReviewCard'
-import { createComment, deleteComment, myFetch, updateComment } from '@/services/create'
+import { createComment, deleteComment, myFetch, updateComment } from 'src/services/create'
+
 
 
 

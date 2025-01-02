@@ -7,8 +7,9 @@ import Image from "next/image";
 import { CalendarDays, MoveRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { client } from "src/sanity/lib/client";
 
-import { client } from "@/sanity/lib/client";
+
 
 async function Blog() {
   interface BlogProps {
