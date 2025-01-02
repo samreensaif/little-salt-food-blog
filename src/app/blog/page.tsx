@@ -75,8 +75,8 @@ async function Blog() {
                 <h1 className="text-xl sm:text-2xl font-bold">{item.title}</h1>
 
                 <Link href={`/blog/id?id=${item.id}&title=${item.title}&description=${item.description}&minutes=${item.minutes}&date=${item.date}&blogImage=${item.blogImage}`}>
-                  <button className="inline-block text-white p-2 mt-2 hover:underline bg-[#7C4EE4]">
-                    Read More <MoveRight className="inline-flex ml-2" />
+                  <button className="inline-block group text-white p-2 mt-2 hover:underline bg-[#7C4EE4]">
+                    Read More <MoveRight className="hidden group-hover:inline-flex transition-all duration-1000 ease-in-out ml-2" />
                   </button>
                 </Link>
               </div>

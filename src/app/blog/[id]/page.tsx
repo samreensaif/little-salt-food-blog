@@ -1,9 +1,9 @@
 
 
-import PostCreator from "@/components/comments/comments";
+import React from "react";
+import PostCreator from '../../../components/comments/comments';
 import { CalendarDays, Clock9 } from "lucide-react";
 import Image from "next/image";
-import React from "react";
 
 async function DynamicPage({ searchParams }: { searchParams: Promise<{ id: number, title: string, description: string, minutes: string, blogImage: string, date: string }> }) {
   

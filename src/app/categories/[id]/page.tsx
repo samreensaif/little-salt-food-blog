@@ -4,8 +4,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { CalendarDays, Clock9 } from 'lucide-react';
-import PostCreator from '@/components/comments/comments';
-
+import PostCreator from '../../../components/comments/comments';
 async function Categorypage({ searchParams }: { searchParams: Promise<{id: number, Title: string, Img:string, Date: string, Para: string, Minutes: string }> }) {
   const { id, Title, Img, Date, Para, Minutes } = await searchParams;
 

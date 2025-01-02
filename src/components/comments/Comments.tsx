@@ -111,7 +111,7 @@ const deleteFunction = async (_id: string) => {
   }
 
   return (
-    <div className="w-full p-6 bg-white border border-[#D4D7E5] rounded-lg">
+    <div className="w-3/4 m-auto p-6 bg-white border border-[#D4D7E5] rounded-lg">
       {!isExpanded ? (
         <div className="flex items-center gap-3">
           <Avatar className="h-[59px] w-[59px] border-2 border-primary">

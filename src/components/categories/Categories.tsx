@@ -76,8 +76,8 @@ async function Categories() {
                    <Link
                      href={`/categories/id=${item.id}?id=${item.id}&Title=${item.title}&Date=${item.date}&Img=${item.img}&Para=${item.para}&Minutes=${item.minutes}`}
                    >
-                     <p className="text-white flex items-center text-sm sm:text-base hover:underline ">
-                       Read More <MoveRight className="ml-2" />
+                     <p className="text-white group flex items-center text-sm sm:text-base hover:underline ">
+                       Read More <MoveRight className="hidden group-hover:inline-flex transition-all ease-in-out duration-1000 ml-2" />
                      </p>
                    </Link>
                  </div>

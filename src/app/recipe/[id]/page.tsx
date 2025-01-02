@@ -1,7 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { CalendarDays, Clock9 } from 'lucide-react';
-import PostCreator from '@/components/comments/comments';
+
+import PostCreator from '../../../components/comments/comments';
+
+
 
 async function RecipeDynamicpage({ searchParams }: { searchParams: Promise<{ id: number, recipeTitle: string, recipeImage: string, date: string, detailDescription: string, minutes: string }> }) 
 

@@ -92,7 +92,7 @@ articlesEntry[]
                                 href={`/article/id?id=${item.id}&articleImage=${item.articleImage}&date=${item.date}&title=${item.title}&description=${item.description}&minutes=${item.minutes}`}
                             >
                                 <button className="inline-block text-white py-2 px-4 mt-2 bg-[#7C4EE4] rounded-md hover:underline">
-                                    Read More <MoveRight className="inline-flex ml-2" />
+                                    Read More <MoveRight className="hidden group-hover:inline-flex transition-all duration-1000 ease-in-out ml-2" />
                                 </button>
                             </Link>
                         </div>

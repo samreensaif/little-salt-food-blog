@@ -48,14 +48,14 @@ async function FeaturedRecipes() {
   return (
     <>
       {/* Title Section */}
-      <div className="w-full text-center mt-[60px] mb-[60px]">
+      <div className="w-full text-center mt-[60px] mb-[60px] ">
         <h1 className="text-4xl text-embossed sm:text-5xl md:text-6xl font-semibold text-[#7C4EE4]">
           Must-Try Recipe This Week
         </h1>
       </div>
 
       {/* Main Section */}
-      <div className="flex flex-col lg:flex-row gap-10 mx-5 sm:mx-10 md:mx-20 lg:mx-32 justify-center lg:justify-between mt-10">
+      <div className="flex flex-col lg:flex-row gap-10 mx-5 sm:mx-10 md:mx-20 lg:mx-32 justify-center lg:justify-between mt-10 ">
         {/* Recipe Cards */}
         <div className="flex flex-col gap-10 items-center">
           {selectedRecipes.map((recipe, index) => (
@@ -91,8 +91,8 @@ async function FeaturedRecipes() {
                 <Link
                   href={`/recipe/id=${recipe.id}?recipeTitle=${recipe.recipeTitle}&recipeImage=${recipe.recipeImage}&description=${recipe.description}&date=${recipe.date}&detailDescription=${recipe.detailDescription}&minutes=${recipe.minutes}`}
                 >
-                  <p className="inline-block text-white p-2 mt-2 hover:underline bg-[#7C4EE4] text-sm sm:text-base">
-                    Read More <MoveRight className="inline-flex ml-2" />
+                  <p className="inline-block group text-white p-2 mt-2 hover:underline bg-[#7C4EE4] text-sm sm:text-base">
+                    Read More <MoveRight className="hidden group-hover:inline-flex ml-2 " />
                   </p>
                 </Link>
               </div>
