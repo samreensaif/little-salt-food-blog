@@ -10,7 +10,7 @@ function SubscribeBox() {
       </div>
 
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 sm:mb-8 md:mb-10">
+        <h1 className="text-4xl text-embossed sm:text-5xl md:text-6xl font-bold text-white mb-6 sm:mb-8 md:mb-10">
           Get our stories delivered from us to your inbox weekly.
         </h1>
 

@@ -1,18 +1,21 @@
+
 import Comments from "@/components/comments/Comments";
 import { CalendarDays, Clock9 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
-async function DynamicPage({ searchParams }: { searchParams: Promise<{ title: string, description: string, minutes: string, blogImage: string, date: string }> }) {
-  const { title, description, minutes, blogImage, date } = await searchParams;
+async function DynamicPage({ searchParams }: { searchParams: Promise<{  title: string, description: string, minutes: string, blogImage: string, date: string }> }) {
+  
+  
+  const {  title, description, minutes, blogImage, date } = await searchParams;
 
   return (
     <div className="py-6 bg-purple-100">
       <div className="w-full flex justify-center items-center flex-col mt-[80px] mb-7">
         {/* title */}
         <h1
-          style={{ fontFamily: "Playfair Display, serif" }}
-          className="text-4xl sm:text-5xl font-semibold text-[#7C4EE4] text-center px-4 sm:px-0"
+          
+          className="text-4xl text-embossed sm:text-5xl font-semibold text-[#7C4EE4] text-center px-4 sm:px-0"
         >
           {title}
         </h1>
@@ -30,7 +33,7 @@ async function DynamicPage({ searchParams }: { searchParams: Promise<{ title: st
         </div>
 
         {/* image */}
-        <div className="relative w-full max-w-[600px] h-[300px] sm:h-[400px] md:h-[500px] my-5">
+        <div className="relative w-full shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] rounded-lg max-w-[600px] h-[300px] sm:h-[400px] md:h-[500px] my-5">
           <Image
             src={blogImage}
             alt="Street Food"
@@ -47,7 +50,8 @@ async function DynamicPage({ searchParams }: { searchParams: Promise<{ title: st
           </p>
         </div>
       </div>
-      <Comments />
+      
+      <Comments/>
     </div>
   );
 }

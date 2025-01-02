@@ -65,7 +65,13 @@ try {
       {/* Contact Form Section */}
       <section className="pt-[100px]">
         <div className="container mx-auto px-4">
-        <h1  className="text-6xl text-center font-semibold text-[#7C4EE4]">Get In Touch With Us</h1>
+        <h1
+   
+  className="text-6xl text-embossed text-center font-semibold text-[#7C4EE4]"
+>
+  Get In Touch With Us
+</h1>
+
           <p className="text-gray-500 text-center max-w-2xl mx-auto mt-6 mb-12 md:mb-16">
           Have questions or feedback about our recipes, tips, or services? We would love to hear from you! Feel free to send us an email, and our dedicated team will be delighted to assist you. Don&apos;t hesitate—reach out to us today!
           </p>
@@ -112,7 +118,10 @@ try {
             </div>
 
             {/* Contact Form */}
-            <form className="md:col-span-2 space-y-6" onSubmit={handleSubmit}>
+
+            <div className="p-4 shadow-[rgba(0,_0,_0,_0.2)_0px_60px_40px_-7px]">
+
+            <form className="md:col-span-2 space-y-6" onSubmit={handleSubmit} >
               <div>
                 <label className="font-medium mb-2 block">Your name</label>
                 <Input placeholder="Abc" name='name' value={name} onChange={(e) => setName(e.target.value)} />
@@ -133,6 +142,7 @@ try {
                 Submit
               </Button>
             </form>
+            </div>
           </div>
         </div>
       </section>

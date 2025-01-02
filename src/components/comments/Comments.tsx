@@ -1,4 +1,6 @@
 
+
+
 "use client";
 import React, { useState } from "react";
 import { Input } from "../ui/input";
@@ -30,7 +32,7 @@ function Comments() {
 
   return (
     <div className="w-full max-w-[600px] m-auto mt-[120px] flex flex-col gap-10 px-4 sm:px-0">
-      <h1 className="text-3xl font-semibold text-center">Comments</h1>
+      <h1 className="text-3xl text-embossed font-semibold text-left">Comments:</h1>
 
       {/* Name Input */}
       <Input

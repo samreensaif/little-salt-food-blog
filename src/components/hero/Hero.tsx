@@ -1,35 +1,62 @@
 
 import { Button } from "../ui/button";
 import { client } from "@/sanity/lib/client";
+
 import Link from "next/link";
 
 import React from "react";
 
 
-
-
-
 async function Hero() {
-  const res = await client.fetch(`
-    *[_type=='landingPage'][].sections[0]{
-      mainHeading,btnText,para1,
-      'heroImage':heroImage.asset->url
-    }
+
+
+  interface HeroData {
+    mainHeading: string;
+    
+    para1: string;
+    heroImage: string;
+  }
+
+
+  const res: HeroData[] = await client.fetch(`
+   *[_type=='landingPage'][].sections[3].
+  heroSection[]{
+  'heroImage':heroImage.asset->url,
+  'mainHeading':mainHeading,
+  'para1':para1
+  }
   `);
 
+  const cardQuantity = res.length
+  const cardRandomNumber = Math.floor(Math.random() * cardQuantity)
+  const { heroImage, para1, mainHeading } = res[cardRandomNumber];
+
+
+console.log(res)
 
 
 
   return (
+
+   
     <section className="relative">
+
+
+
       {/* Hero Background */}
 
       <div
-      
-        style={{ backgroundImage: `url(${res[0].heroImage})` }}
-        className="bg-cover bg-center h-[80vh] sm:h-[90vh] flex items-center justify-center"
-       
 
+
+
+
+
+       style={{
+        backgroundImage: `url(${heroImage})`,
+        
+      }}
+        
+        className="bg-cover bg-center h-[80vh] sm:h-[90vh] flex items-center justify-center"
       ></div>
 
       {/* Hero Content */}
@@ -37,9 +64,9 @@ async function Hero() {
 
 
         <h1 
-        
-        className="text-2xl xsm:text-3xl sm:text-3xl md:text-5xl lg:text-6xl leading-snug font-bold text-white">
-          {res[0].mainHeading}
+       
+        className="text-2xl text-embossed xsm:text-3xl sm:text-3xl md:text-5xl lg:text-6xl leading-snug font-bold text-white">
+          {mainHeading}
         </h1>
 
 
@@ -48,17 +75,19 @@ async function Hero() {
 
         
         <p className="text-base xsm:text-lg sm:text-xl md:text-2xl lg:text-[24px] font-medium mt-4 sm:mt-6 lg:mt-8 text-white">
-          {res[0].para1}
+          {para1}
         </p>
 
         <Link href="/blog">
         <Button className="mt-6 text-white sm:mt-8 lg:mt-10 text-sm xsm:text-base sm:text-lg md:text-xl lg:text-[18px] bg-[#7C4EE4] hover:bg-purple-400 hover:underline hover:scale-110 transition-all duration-300 px-4 sm:px-6 lg:px-8 py-2">
-          {res[0].btnText}
+          Explore Blogs
         </Button>
 
         </Link>
       </div>
+      
     </section>
+
   );
 }
 

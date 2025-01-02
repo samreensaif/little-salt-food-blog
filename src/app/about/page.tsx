@@ -23,7 +23,9 @@ async function AboutPage() {
   return (
     <section className='py-10 flex flex-col justify-center items-center bg-purple-200'>
       <div className="w-full text-center mt-[80px] mb-7">
-        <h1 className="text-4xl sm:text-6xl font-semibold text-[#7C4EE4]"> {res[0].title}</h1>
+        <h1 
+        
+        className="text-4xl text-embossed sm:text-6xl font-semibold text-[#7C4EE4]"> {res[0].title}</h1>
       </div>
 
       <div>

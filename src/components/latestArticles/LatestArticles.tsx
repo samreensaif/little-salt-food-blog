@@ -12,9 +12,10 @@ async function LatestArticles() {
         description: string;
         date: string;
         articleImage: string;
-        btnText: string;
+        
         title: string;
         minutes: string;
+        id: number;
     }
 
     interface Title {
@@ -22,18 +23,21 @@ async function LatestArticles() {
     }
 
     const res: Articles[] = await client.fetch(`
-        *[_type=='landingPage'][].sections[3].articlesEntry[]{
-          'description': description,
-          'title': title,
-          'date': date,
-          'articleImage': articleImage.asset->url,
-          'btnText': btnText,
-          'minutes': minutes
-        }
+        *[_type=='landingPage'][].sections[2].
+articlesEntry[]
+{
+  'description':description,
+  'id':id,
+  'title':title,
+  'date':date,
+  'articleImage':articleImage.asset->url,
+  'minutes':minutes
+  
+}
     `);
 
     const res1: Title[] = await client.fetch(`
-        *[_type=='landingPage'][].sections[3]{title}
+        *[_type=='landingPage'][].sections[2]{title}
     `);
 
     return (
@@ -41,7 +45,14 @@ async function LatestArticles() {
             {/* Title */}
             <div className="w-full text-center mt-20 mb-20">
                 <h1
-                    style={{ fontFamily: 'Playfair Display, serif' }}
+                     style={{
+            
+                        textShadow: `
+                  2px 2px 4px rgba(255, 255, 255, 0.9), 
+                  -2px -2px 4px rgba(0, 0, 0, 0.5),
+                  4px 4px 8px rgba(0, 0, 0, 0.2)
+                `
+                      }}
                     className="text-4xl sm:text-5xl md:text-6xl font-semibold text-[#7C4EE4]"
                 >
                     {res1[0].title}
@@ -53,7 +64,7 @@ async function LatestArticles() {
                 {res.map((item: Articles, index: number) => (
                     <div
                         key={index}
-                        className="w-full h-auto border-2 border-[#8d70d1] flex flex-col gap-6 hover:shadow-lg rounded-lg hover:scale-105 transition-all duration-700 ease-in-out"
+                        className="w-full h-auto border-2  flex flex-col gap-6 hover:shadow-lg rounded-lg hover:scale-105 transition-all duration-700 ease-in-out shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]"
                     >
                         {/* Card Image */}
                         <div className="relative w-full h-64 sm:h-72 lg:h-80">
@@ -78,7 +89,7 @@ async function LatestArticles() {
 
                             {/* Link */}
                             <Link
-                                href={`/article/id?articleImage=${item.articleImage}&date=${item.date}&title=${item.title}&description=${item.description}&btnText=${item.btnText}&minutes=${item.minutes}`}
+                                href={`/article/id?id=${item.id}&articleImage=${item.articleImage}&date=${item.date}&title=${item.title}&description=${item.description}&minutes=${item.minutes}`}
                             >
                                 <button className="inline-block text-white py-2 px-4 mt-2 bg-[#7C4EE4] rounded-md hover:underline">
                                     Read More <MoveRight className="inline-flex ml-2" />

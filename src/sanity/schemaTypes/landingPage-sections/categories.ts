@@ -3,14 +3,10 @@ export const categories = {
     name: 'categories',
     type: 'object',
     fields: [
+       
         {
-            title: 'Category Title',
-            name: 'categoryTitle',
-            type: 'string',
-        },
-        {
-            title: 'Category Card',
-            name: 'categoryCard',
+            title: 'Card',
+            name: 'card',
             type:'array',
             of:[
 
@@ -20,34 +16,35 @@ export const categories = {
                     type:'object',
                     fields:[
                         {
-                            title: 'Category Card Title',
-                            name: 'categoryCardTitle',
+                            title: 'Title',
+                            name: 'title',
                             type: 'string',
                         },
                         {
-                            title:'Category Card Image',
-                            name:'categoryCardImage',
+                            title:' Img',
+                            name:'img',
                             type:'image',
                         },
                         {
-                            title:'Category Card Date',
-                            name:'categoryCardDate',
+                            title:'Date',
+                            name:'date',
                             type:'string',
                         },
                         {
-                            title:'Category Card Minutes',
-                            name:'categoryCardMinutes',
+                            title:' Minutes',
+                            name:'minutes',
                             type:'string',
                         },
+                        
                         {
-                            title: 'Category Card Button',
-                            name: 'categoryCardButton',
+                            title: 'Para',
+                            name: 'para',
                             type: 'string',
                         },
                         {
-                            title: 'Category Card Paragrapgy',
-                            name: 'categoryCardParagrapgy',
-                            type: 'string',
+                            title:'ID',
+                            name:'id',
+                            type:'number',
                         }
 
                     ]

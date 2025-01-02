@@ -43,10 +43,11 @@ export const latestArticles = {
                             name:'date',
                             type:'string',
                         },
+                        
                         {
-                            title:'Button Text',
-                            name:'btnText',
-                            type:'string',
+                            title:'ID',
+                            name:'id',
+                            type:'number',
                         }
                     ],
                    

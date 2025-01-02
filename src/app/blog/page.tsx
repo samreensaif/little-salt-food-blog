@@ -17,7 +17,8 @@ async function Blog() {
     minutes: string;
     date: string;
     blogImage: string;
-    btnText: string;
+    id:number;
+    
   }
 
   const res: BlogProps[] = await client.fetch(`
@@ -26,8 +27,9 @@ async function Blog() {
       'description': description,
       'title': title,
       'date': date,
-      'btnText': btnText,
+      
       'blogImage': blogImage.asset->url,
+      'id':id
     }
   `);
 
@@ -39,8 +41,8 @@ async function Blog() {
     <div className="py-6 bg-purple-200">
       <div className="w-full text-center mt-[80px] mb-7">
         <h1
-          style={{ fontFamily: "Playfair Display, serif" }}
-          className="text-4xl sm:text-6xl font-semibold text-[#7C4EE4]"
+           
+          className="text-4xl text-embossed sm:text-6xl font-semibold text-[#7C4EE4]"
         >
           {bTitle[0].title}
         </h1>
@@ -52,7 +54,7 @@ async function Blog() {
           return (
             <div
               key={index}
-              className="w-full max-w-[400px] h-[530px] border-2 border-[#8d70d1] flex flex-col gap-10 hover:shadow-lg rounded-lg hover:scale-105 transition-all duration-1000 ease-in-out"
+              className="w-full max-w-[400px] h-[530px] border-2 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] flex flex-col gap-10 hover:shadow-lg rounded-lg hover:scale-105 transition-all duration-1000 ease-in-out"
             >
               {/* card image */}
               <div className="relative w-full h-[300px]">
@@ -72,9 +74,9 @@ async function Blog() {
                 </p>
                 <h1 className="text-xl sm:text-2xl font-bold">{item.title}</h1>
 
-                <Link href={`/blog/id?title=${item.title}&description=${item.description}&minutes=${item.minutes}&date=${item.date}&blogImage=${item.blogImage}`}>
+                <Link href={`/blog/id?id=${item.id}&title=${item.title}&description=${item.description}&minutes=${item.minutes}&date=${item.date}&blogImage=${item.blogImage}`}>
                   <button className="inline-block text-white p-2 mt-2 hover:underline bg-[#7C4EE4]">
-                    {item.btnText} <MoveRight className="inline-flex ml-2" />
+                    Read More <MoveRight className="inline-flex ml-2" />
                   </button>
                 </Link>
               </div>

@@ -3,9 +3,13 @@
 import React from 'react';
 import Image from "next/image";
 import { CalendarDays, Clock9 } from "lucide-react";
-import Comments from "@/components/comments/Comments";
+
+
+import Comments from '@/components/comments/Comments';
 
 async function LatestDynamic({ searchParams }: { searchParams: Promise<{ date: string, title: string, description: string, minutes: string, articleImage: string }> }) {
+  
+  
   const { date, title, description, minutes, articleImage } = await searchParams;
 
   return (
@@ -13,8 +17,8 @@ async function LatestDynamic({ searchParams }: { searchParams: Promise<{ date: s
       <div className="w-full flex justify-center items-center flex-col mt-[80px] mb-7">
         {/* title */}
         <h1
-          style={{ fontFamily: "Playfair Display, serif" }}
-          className="text-4xl font-semibold text-[#7C4EE4] text-center px-4 sm:px-0"
+          
+          className="text-4xl text-embossed font-semibold text-[#7C4EE4] text-center px-4 sm:px-0"
         >
           {title}
         </h1>
@@ -32,7 +36,7 @@ async function LatestDynamic({ searchParams }: { searchParams: Promise<{ date: s
         </div>
 
         {/* image */}
-        <div className="relative w-full max-w-[600px] h-[300px] sm:h-[400px] md:h-[500px] my-5">
+        <div className="relative w-full rounded-lg shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] max-w-[600px] h-[300px] sm:h-[400px] md:h-[500px] my-5">
           <Image
             src={articleImage}
             alt="image"
@@ -49,7 +53,12 @@ async function LatestDynamic({ searchParams }: { searchParams: Promise<{ date: s
           </p>
         </div>
       </div>
-      <Comments />
+       <div className='mt-10'>
+      
+           {/* <PostCreator blog_id={id} /> */}
+
+           <Comments/>
+            </div>
     </div>
   );
 }

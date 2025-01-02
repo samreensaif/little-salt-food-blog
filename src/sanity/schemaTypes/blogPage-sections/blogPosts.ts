@@ -54,6 +54,11 @@ export const blogPosts = {
                             title:'Button Text',
                             name:'btnText',
                             type:'string'
+                        },
+                        {
+                            title:'ID',
+                            name:'id',
+                            type:'number',
                         }
                     ]
                 }
