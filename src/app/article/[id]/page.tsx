@@ -3,14 +3,15 @@
 import React from 'react';
 import Image from "next/image";
 import { CalendarDays, Clock9 } from "lucide-react";
+import PostCreator from '@/components/comments/comments';
 
 
-import Comments from '@/components/comments/Comments';
 
-async function LatestDynamic({ searchParams }: { searchParams: Promise<{ date: string, title: string, description: string, minutes: string, articleImage: string }> }) {
+
+async function LatestDynamic({ searchParams }: { searchParams: Promise<{ id: number, date: string, title: string, description: string, minutes: string, articleImage: string }> }) {
   
   
-  const { date, title, description, minutes, articleImage } = await searchParams;
+  const {id, date, title, description, minutes, articleImage } = await searchParams;
 
   return (
     <div className="py-6 bg-purple-100">
@@ -55,9 +56,9 @@ async function LatestDynamic({ searchParams }: { searchParams: Promise<{ date: s
       </div>
        <div className='mt-10'>
       
-           {/* <PostCreator blog_id={id} /> */}
+           <PostCreator blog_id={id} />
 
-           <Comments/>
+           {/* <Comments/> */}
             </div>
     </div>
   );

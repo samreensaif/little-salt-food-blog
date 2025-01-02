@@ -1,13 +1,14 @@
 
-import Comments from "@/components/comments/Comments";
+
+import PostCreator from "@/components/comments/comments";
 import { CalendarDays, Clock9 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
-async function DynamicPage({ searchParams }: { searchParams: Promise<{  title: string, description: string, minutes: string, blogImage: string, date: string }> }) {
+async function DynamicPage({ searchParams }: { searchParams: Promise<{ id: number, title: string, description: string, minutes: string, blogImage: string, date: string }> }) {
   
   
-  const {  title, description, minutes, blogImage, date } = await searchParams;
+  const { id, title, description, minutes, blogImage, date } = await searchParams;
 
   return (
     <div className="py-6 bg-purple-100">
@@ -51,7 +52,7 @@ async function DynamicPage({ searchParams }: { searchParams: Promise<{  title: s
         </div>
       </div>
       
-      <Comments/>
+      <PostCreator blog_id={id} />
     </div>
   );
 }

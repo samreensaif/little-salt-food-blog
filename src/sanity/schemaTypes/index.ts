@@ -10,10 +10,11 @@ import { latestArticles } from './landingPage-sections/latestArticles'
 import { aboutPage } from './aboutPage/aboutPage'
 import { aboutPageSection } from './aboutPage/aboutPageSection'
 import { aboutCardSection } from './aboutPage/aboutCardSection'
+import { comment } from './comment/comment'
 
 
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [landingPage,hero,featuredRecipes,categories,latestArticles,blogPageSchema,blogPosts,contactPage,aboutPage,aboutPageSection,aboutCardSection],
+  types: [landingPage,hero,featuredRecipes,categories,latestArticles,blogPageSchema,blogPosts,contactPage,aboutPage,aboutPageSection,aboutCardSection,comment],
 }

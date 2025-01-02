@@ -1,16 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { CalendarDays, Clock9 } from 'lucide-react';
+import PostCreator from '@/components/comments/comments';
 
-import Comments from '@/components/comments/Comments';
-
-
-
-async function RecipeDynamicpage({ searchParams }: { searchParams: Promise<{  recipeTitle: string, recipeImage: string, date: string, detailDescription: string, minutes: string }> }) 
+async function RecipeDynamicpage({ searchParams }: { searchParams: Promise<{ id: number, recipeTitle: string, recipeImage: string, date: string, detailDescription: string, minutes: string }> }) 
 
 
 {
-  const {recipeTitle, recipeImage, date, detailDescription, minutes } = await searchParams;
+  const {id,recipeTitle, recipeImage, date, detailDescription, minutes } = await searchParams;
 
   return (
     <div className="py-6 bg-purple-100">
@@ -54,7 +51,7 @@ async function RecipeDynamicpage({ searchParams }: { searchParams: Promise<{  re
         </div>
       </div>
       
-      <Comments/>
+      <PostCreator blog_id={id} />
     </div>
   );
 }

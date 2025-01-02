@@ -1,103 +1,196 @@
+// src\components\comments.tsx
+'use client'
+
+import { useEffect, useState } from 'react'
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
+import { Textarea } from '@/components/ui/textarea'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { X } from 'lucide-react'
+
+
+import { Toaster, toast } from 'sonner';
+import ReviewCard from '../ReviewCard/ReviewCard'
+import { createComment, deleteComment, myFetch, updateComment } from '@/services/create'
 
 
 
-"use client";
-import React, { useState } from "react";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
-import { Button } from "../ui/button";
+export interface Comment { _id: string,  name: string; email: string; message: string, paramsId: number}
 
-function Comments() {
-  // State for input fields and comments
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-  const [comments, setComments] = useState<{ name: string; message: string; id: number }[]>([]);
+export default function PostCreator({ blog_id }: { blog_id: number }) {
 
-  // Handle form submission
-  const handlePostComment = () => {
-    // Validate fields
-    if (!name.trim() || !message.trim()) {
-      alert("Both fields are required!");
-      return;
+
+  const [name, SetName] = useState("")
+  const [email, SetEmail] = useState("")
+  const [message, SetMessage] = useState("")
+  const [cmtArray, setCmtArray] = useState<Comment[]>([])
+  const [btnName, setBtnName] = useState("Post")
+  const [findCard, setFindCard] = useState<Comment | null>(null)
+
+// ------------------------------------------------create 
+const postComment = async () => {
+  const cardFound = cmtArray.find((comment) => comment._id === findCard?._id);
+
+  if (cardFound) {
+    const UpdatedComment = { name, email, message, paramsId: Number(blog_id) };
+    const res = await updateComment(cardFound._id, UpdatedComment)
+    setCmtArray(res);
+    SetName('');
+    SetEmail('');
+    SetMessage('');
+    handleClose();
+    setBtnName('Post')
+    setFindCard(null)
+    toast.success('Comment updated successfully');
+  }
+  
+  else if (name && email && message && !cardFound) {
+    const newComment = { name, email, message, paramsId: Number(blog_id) };
+    try {
+      const res = await createComment(newComment);
+      setCmtArray(res);
+      console.log("🚀",res);
+      SetName('');
+      SetEmail('');
+      SetMessage('');
+      handleClose();
+      toast.success('Comment posted successfully');
+      
+    } catch (error) {
+      console.error('Error posting comment:', error);
     }
+  } else {
+    toast.error('Please fill all the fields');
+  }
+};
 
-    // Add new comment to the comments list
-    const newComment = { name, message, id: Date.now() };
-    setComments([newComment, ...comments]);
 
-    // Clear the input fields
-    setName("");
-    setMessage("");
+// ------------------------------------------------fetch
+useEffect(() => {
+  const fetchComments = async () => {
+    try {
+      const comments = await myFetch(blog_id);
+      setCmtArray(comments);
+      console.log("💡",comments);
+      
+    } catch (error) {
+      console.error('Error fetching comments:', error);
+    }
   };
+  fetchComments();
+},[blog_id]);
 
-  return (
-    <div className="w-full max-w-[600px] m-auto mt-[120px] flex flex-col gap-10 px-4 sm:px-0">
-      <h1 className="text-3xl text-embossed font-semibold text-left">Comments:</h1>
 
-      {/* Name Input */}
-      <Input
-        className="w-full h-10 border-2 border-gray-500"
-        placeholder="Your Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      {/* Message Textarea */}
-      <Textarea
-        placeholder="Type your message here."
-        className="w-full h-20 border-2 border-gray-500"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-
-      {/* Post Button */}
-      <Button
-        className="w-full sm:w-[100px] text-[18px] bg-[#7C4EE4] hover:bg-purple-400 hover:text-black"
-        onClick={handlePostComment}
-      >
-        Post
-      </Button>
-
-      {/* Display Comments */}
-      <div className="mt-8 border-2 border-gray-300 p-4">
-        {comments.length > 0 ? (
-          comments.map((comment) => (
-            <div
-              key={comment.id}
-              className="border-b border-gray-300 pb-4 mb-4"
-            >
-              <h3 className="font-bold">{comment.name}:</h3>
-              <p>{comment.message}</p>
-            </div>
-          ))
-        ) : (
-          <p className="text-gray-500 text-center">No comments yet.</p>
-        )}
-      </div>
-    </div>
-  );
+// ------------------------------------------------set update input fields
+const setUpdateInputFields = (data: Comment) => {
+  setIsExpanded(true);
+  SetName(data.name);
+  SetEmail(data.email);
+  SetMessage(data.message);
+  setBtnName('Update')
+  setFindCard(data)
 }
 
-export default Comments;
+// ------------------------------------------------Delete
+const deleteFunction = async (_id: string) => {
+  const res = await deleteComment(_id, blog_id);
+  setCmtArray(res);
+  toast.success('Comment deleted successfully');
+}
 
 
 
-// import React from 'react';
-// import { Input } from '../ui/input';
-// import { Textarea } from '../ui/textarea';
-// import { Button } from '../ui/button';
 
-// function Comments() {
-//   return (
-//     <div className="w-full max-w-[600px] m-auto mt-[120px] flex flex-col gap-10 px-4 sm:px-0">
-//       <h1 className='text-3xl font-semibold text-center'>Comments</h1>
 
-//       <Input className='w-full h-10 border-2 border-gray-500' />
-//       <Textarea placeholder="Type your message here." className='w-full h-20 border-2 border-gray-500' />
-//       <Button className="w-full sm:w-[100px] text-[18px] bg-[#7C4EE4] hover:bg-purple-400 hover:text-black">Post</Button>
-//     </div>
-//   );
-// }
 
-// export default Comments;
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  const handleClose = () => {
+    setIsExpanded(false)
+  }
+
+  return (
+    <div className="w-full p-6 bg-white border border-[#D4D7E5] rounded-lg">
+      {!isExpanded ? (
+        <div className="flex items-center gap-3">
+          <Avatar className="h-[59px] w-[59px] border-2 border-primary">
+            <AvatarImage src="/placeholder.svg" alt="User avatar" />
+            <AvatarFallback>User</AvatarFallback>
+          </Avatar>
+          <button
+            onClick={() => setIsExpanded(true)}
+            className="flex-1 h-14 px-4 text-left text-[#565973] font-semibold bg-[#F3F3F3] border border-[#B4B7C9] rounded-[30px] hover:bg-gray-100 transition-colors"
+          >
+            Add your comments here ...
+          </button>
+        </div>
+      ) : (
+        <div className="space-y-5">
+          <div className="flex items-start justify-between">
+            <div className="flex items-center gap-3">
+              <Avatar className="h-[59px] w-[59px] border-2 border-primary">
+                <AvatarImage src="/user.png" alt="User avatar" />
+              </Avatar>
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={handleClose}
+              className="h-11 w-11"
+            >
+              <X className="h-6 w-6" />
+            </Button>
+          </div>
+
+          {/* Added name input fields */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="firstName">First Name</Label>
+              <Input
+                id="firstName"
+                placeholder="Enter your first name"
+                className="bg-[#F3F3F3] border-[#B4B7C9]"
+                value={name}
+                onChange={(e) => SetName(e.target.value)}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                placeholder="Enter your email"
+                className="bg-[#F3F3F3] border-[#B4B7C9]"
+                value={email}
+                onChange={(e) => SetEmail(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <Textarea
+            placeholder="Write your post or question here"
+            className="min-h-[250px] bg-[#F3F3F3] border-[#B4B7C9] resize-none"
+            value={message}
+            onChange={(e) => SetMessage(e.target.value)}
+          />
+          <div className="flex justify-end">
+            <Toaster richColors/>
+            <Button className="w-[161px]" onClick={postComment}>{btnName}</Button>
+          </div>
+        </div>
+      )}
+
+      <hr className='my-4'/>
+      {cmtArray.map((comment: Comment, index: number) => (
+         <ReviewCard
+         data={comment}
+         key={index}
+         setUpdateInputFields={setUpdateInputFields}
+         deleteFunction={deleteFunction}
+       />
+      ))}
+    </div>
+
+  )
+}
 

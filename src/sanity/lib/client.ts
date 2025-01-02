@@ -1,3 +1,4 @@
+// src\sanity\lib\client.ts
 import { createClient } from 'next-sanity'
 
 import { apiVersion, dataset, projectId } from '../env'
@@ -7,8 +8,5 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn: false, // Set to false if statically generating pages, using ISR or tag-based revalidation
-  token: process.env.SANITY_API_TOKEN, // or leave undefined to be anonymous user
+  token: process.env.SANITY_API_TOKEN,
 })
-
-
-

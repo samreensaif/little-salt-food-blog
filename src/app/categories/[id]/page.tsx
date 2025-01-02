@@ -4,12 +4,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { CalendarDays, Clock9 } from 'lucide-react';
+import PostCreator from '@/components/comments/comments';
 
-import Comments from '@/components/comments/Comments';
 
 
-async function Categorypage({ searchParams }: { searchParams: Promise<{ Title: string, Img:string, Date: string, Para: string, Minutes: string }> }) {
-  const { Title, Img, Date, Para, Minutes } = await searchParams;
+
+async function Categorypage({ searchParams }: { searchParams: Promise<{id: number, Title: string, Img:string, Date: string, Para: string, Minutes: string }> }) {
+  const { id, Title, Img, Date, Para, Minutes } = await searchParams;
 
   return (
     <div className="py-6 bg-purple-100">
@@ -57,7 +58,7 @@ async function Categorypage({ searchParams }: { searchParams: Promise<{ Title: s
 
      
 
-     <Comments/>
+    <PostCreator blog_id={id} />
       </div>
     </div>
   );
